@@ -24,3 +24,19 @@ function loadBooking() {
 		} 
 	});
 }
+
+function makeBooking(){
+	// Assign booking based on ID of <div> clicked
+	var booking = this.id;
+
+	// Re-form data - edit the relevant element in the object
+	bookingData[booking] = userId;
+	console.log(bookingData);
+	// Submit new data object
+	$.post('includes/json.php', bookingData, function() {
+		loadBooking();
+	});
+
+	return false;
+
+}
